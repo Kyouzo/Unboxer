@@ -1,0 +1,82 @@
+CS2 UPDATED - WHAT TO DO
+========================
+
+You need: Visual Studio with the C++ workload installed (BUILD.bat uses it).
+
+
+STEP 1 - NEW OFFSETS (every update)
+-----------------------------------
+Get a new dump (cs2-dumper, or a CS2 offsets repository's zip).
+Copy these 3 files from it into   Lootline\offsets\   and replace the old ones:
+    offsets.json
+    buttons.json
+    info.json
+(The other dump files aren't needed.)
+
+
+STEP 2 - BUILD
+--------------
+Double-click   Lootline\BUILD.bat   and wait for "BUILD OK".
+    x64\Release\Lootline.exe     <- the normal one
+    x64\Debug\LL_Debug.exe       <- debug build (asserts on, slower)
+
+
+STEP 3 - CHECK
+--------------
+Start CS2, run Lootline, open the menu (Home):
+    Settings -> Game update -> Check signatures   (takes a few seconds)
+
+    "All signatures found" (green)   -> done.
+    yellow name                      -> broke, but the offsets dump covers it. Fine.
+    red name                         -> that signature broke. Go to step 4.
+
+It also tells you what each one is used for ("case opening", "skins in matches", "everything"...),
+so you know how bad it is.
+
+
+STEP 4 - NEW SIGNATURES (only for the red ones)
+-----------------------------------------------
+Open   Lootline\offsets\patterns.txt   in Notepad.
+Every Lootline signature is listed there, with a # in front (= not used).
+
+For each red name, add a line (or remove the # and replace the bytes):
+
+    UseTool = 48 85 D2 0F 84 ? ? ? ? 53 41 57 48 83 EC 28 49 8B D8 4C 8B F9 48 85 DB 0F 84
+
+- The name on the LEFT must be Lootline's name, exactly as it's written in patterns.txt / the menu.
+- ? = any byte. "??" works too.
+- You can also paste a C++ line as-is:
+      inline constexpr const char* UseTool = "48 85 D2 0F 84 ? ...";
+- A typo'd name shows up red in the menu as "Unknown name in patterns.txt".
+
+Save, then do STEP 2 and STEP 3 again.
+
+
+PRICES (for the upgrader)
+-------------------------
+Lootline never goes online: the prices are a list built into the DLL (data\prices.txt).
+
+The easy way (no building):
+  1. In Lootline: Settings -> Prices -> Update prices.
+  2. Your browser opens CSFloat's price list. Press Ctrl+S and save it into your Downloads folder.
+  3. Lootline picks the file up by itself (the date under Prices changes).
+
+To build a new list into the DLL instead:
+  1. In your browser, save these as files (Ctrl+S):
+         https://csfloat.com/api/v1/listings/price-list   -> csfloat.json
+         https://market.csgo.com/api/v2/prices/USD.json   -> marketcsgo.json   (optional)
+  2. python tools\make_prices.py csfloat.json marketcsgo.json
+  3. BUILD.bat
+Without building: put the saved csfloat.json into %USERPROFILE%\.lootline as prices_csfloat.json.
+Lootline uses it instead of the built-in list when it's newer.
+
+
+IF SOMETHING GOES WRONG
+-----------------------
+- Game crashes after you added a signature  -> that signature is wrong (it found the wrong function).
+                                               Put a # back in front of it, run BUILD.bat again.
+- BUILD FAILED                              -> scroll up in the window for the first "error" line.
+                                               A missing offsets\*.json file is the usual one.
+- Lootline.exe: "loaded but not listed"     -> CS2 launch options need  -allow_third_party_software
+- Menu doesn't open at all                  -> most likely a red "everything" signature
+                                               (FrameStageNotify / GetLocalPawn). Fix those first.

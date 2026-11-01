@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{9DBC50C0-EFF2-4E14-95E1-1EFD7E3F7EF3}</ProjectGuid>
+    <RootNamespace>Unboxer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <ProjectName>Chadware2SkinChanger</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>Lootline</TargetName>
+    <OutDir>$(SolutionDir)x64\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)x64\$(Configuration)\obj\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>Lootline</TargetName>
+    <OutDir>$(SolutionDir)x64\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)x64\$(Configuration)\obj\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <!-- Static C/C++ runtime: the DLL must load on PCs without Visual Studio (no MSVCP140D / VCRUNTIME140D / ucrtbased). -->
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)source;$(ProjectDir)external\imgui;$(ProjectDir)external\json;$(ProjectDir)external\kiero\minhook\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;windowscodecs.lib;ole32.lib;shell32.lib;user32.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;NOMINMAX;NDEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)source;$(ProjectDir)external\imgui;$(ProjectDir)external\json;$(ProjectDir)external\kiero\minhook\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>false</GenerateMapFile>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;windowscodecs.lib;ole32.lib;shell32.lib;user32.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="source\chadware2\chadware2.cpp" />
+    <ClCompile Include="source\chadware2\features\skinchanger\item_schema.cpp" />
+    <ClCompile Include="source\chadware2\features\skinchanger\skinchanger.cpp" />
+    <ClCompile Include="source\chadware2\features\skinchanger\skin_application.cpp" />
+    <ClCompile Include="source\chadware2\features\skinchanger\glove_changer.cpp" />
+    <ClCompile Include="source\chadware2\features\skinchanger\knife_model_changer.cpp" />
+    <ClCompile Include="source\chadware2\features\skinchanger\knife_animation.cpp" />
+    <ClCompile Include="source\chadware2\features\skinchanger\agent_voice_changer.cpp" />
+    <ClCompile Include="source\chadware2\features\skinchanger\agent_voice_rules.cpp" />
+    <ClCompile Include="source\chadware2\features\skinchanger\econ_item_attribute_manager.cpp" />
+    <ClCompile Include="source\chadware2\features\skinchanger\stattrak_tracker.cpp" />
+    <ClCompile Include="source\chadware2\features\skinchanger\music_kit_changer.cpp" />
+    <ClCompile Include="source\chadware2\features\skinchanger\weapon_cosmetics.cpp" />
+    <ClCompile Include="source\chadware2\features\skinchanger\randomizer.cpp" />
+    <ClCompile Include="source\chadware2\hooks\hooks.cpp" />
+    <ClCompile Include="source\chadware2\features\movement\movement.cpp" />
+    <ClCompile Include="source\chadware2\features\model_preview\model_preview.cpp" />
+    <ClCompile Include="source\chadware2\features\model_preview\model_preview_item.cpp" />
+    <ClCompile Include="source\chadware2\features\model_preview\model_preview_panorama.cpp" />
+    <ClCompile Include="source\chadware2\features\model_preview\model_preview_widget.cpp" />
+    <ClCompile Include="source\chadware2\menu\misc\misc.cpp" />
+    <ClCompile Include="source\chadware2\features\unboxer\game_chat.cpp" />
+    <ClCompile Include="source\chadware2\features\unboxer\local_spray.cpp" />
+    <ClCompile Include="source\chadware2\features\unboxer\custom_color.cpp" />
+    <ClCompile Include="source\chadware2\features\unboxer\lineup.cpp" />
+    <ClCompile Include="source\chadware2\features\unboxer\currency.cpp" />
+    <ClCompile Include="source\chadware2\features\unboxer\game_inventory.cpp" />
+    <ClCompile Include="source\chadware2\features\unboxer\cases.cpp" />
+    <ClCompile Include="source\chadware2\features\unboxer\unboxer.cpp" />
+    <ClCompile Include="source\chadware2\features\unboxer\prices.cpp" />
+    <ClCompile Include="source\chadware2\menu\unboxer\unboxer_menu.cpp" />
+    <ClCompile Include="source\chadware2\menu\ui\ui.cpp" />
+    <ClCompile Include="source\chadware2\interfaces\interfaces.cpp" />
+    <ClCompile Include="source\chadware2\menu\menu.cpp" />
+    <ClCompile Include="source\chadware2\menu\settings\settings.cpp" />
+    <ClCompile Include="source\chadware2\utils\offsets\offsets.cpp" />
+    <ClCompile Include="source\chadware2\menu\skinchanger\images\skin_images.cpp" />
+    <ClCompile Include="source\chadware2\utils\memory\patternscan\patternscan.cpp" />
+    <ClCompile Include="source\chadware2\utils\schema\schema.cpp" />
+    <ClCompile Include="source\cs2\datatypes\cutlbuffer\cutlbuffer.cpp" />
+    <ClCompile Include="source\cs2\datatypes\schema\ISchemaClass\ISchemaClass.cpp" />
+    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="external\imgui\imgui.cpp" />
+    <ClCompile Include="external\imgui\imgui_draw.cpp" />
+    <ClCompile Include="external\imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="external\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="external\imgui\imgui_stdlib.cpp" />
+    <ClCompile Include="external\imgui\imgui_tables.cpp" />
+    <ClCompile Include="external\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="external\kiero\minhook\src\buffer.c" />
+    <ClCompile Include="external\kiero\minhook\src\hook.c" />
+    <ClCompile Include="external\kiero\minhook\src\trampoline.c" />
+    <ClCompile Include="external\kiero\minhook\src\hde\hde32.c" />
+    <ClCompile Include="external\kiero\minhook\src\hde\hde64.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\chadware2\chadware2.h" />
+    <ClInclude Include="source\chadware2\config\config.h" />
+    <ClInclude Include="source\chadware2\config\configmanager.h" />
+    <ClInclude Include="source\chadware2\features\skinchanger\item_schema.h" />
+    <ClInclude Include="source\chadware2\menu\notify.h" />
+    <ClInclude Include="source\chadware2\globals\globals.h" />
+    <ClInclude Include="source\chadware2\hooks\hooks.h" />
+    <ClInclude Include="source\chadware2\features\movement\movement.h" />
+    <ClInclude Include="source\chadware2\features\model_preview\model_preview.h" />
+    <ClInclude Include="source\chadware2\features\model_preview\model_preview_item.h" />
+    <ClInclude Include="source\chadware2\features\model_preview\model_preview_panorama.h" />
+    <ClInclude Include="source\chadware2\features\model_preview\model_preview_widget.h" />
+    <ClInclude Include="source\cs2\panorama\preview_layouts.h" />
+    <ClInclude Include="source\chadware2\menu\misc\misc.h" />
+    <ClInclude Include="source\chadware2\features\unboxer\game_chat.h" />
+    <ClInclude Include="source\chadware2\features\unboxer\local_spray.h" />
+    <ClInclude Include="source\chadware2\features\unboxer\custom_color.h" />
+    <ClInclude Include="source\chadware2\features\unboxer\lineup.h" />
+    <ClInclude Include="source\chadware2\features\unboxer\game_inventory.h" />
+    <ClInclude Include="source\chadware2\features\unboxer\cases.h" />
+    <ClInclude Include="source\chadware2\features\unboxer\unboxer.h" />
+    <ClInclude Include="source\chadware2\features\unboxer\prices.h" />
+    <ClInclude Include="source\chadware2\features\unboxer\prices_resource.h" />
+    <ClInclude Include="source\chadware2\menu\unboxer\unboxer_menu.h" />
+    <ClInclude Include="source\chadware2\menu\ui\ui.h" />
+    <ClInclude Include="source\chadware2\hooks\vmt_hook.h" />
+    <ClInclude Include="source\chadware2\hooks\includeHooks.h" />
+    <ClInclude Include="source\chadware2\interfaces\CEconItemSystem\CEconItemSystem.h" />
+    <ClInclude Include="source\chadware2\interfaces\CGameEntitySystem\CGameEntitySystem.h" />
+    <ClInclude Include="source\chadware2\interfaces\IEngineClient\IEngineClient.h" />
+    <ClInclude Include="source\chadware2\interfaces\IFileSystem\IFileSystem.h" />
+    <ClInclude Include="source\chadware2\interfaces\ILocalize\ILocalize.h" />
+    <ClInclude Include="source\chadware2\interfaces\interfaces.h" />
+    <ClInclude Include="source\chadware2\menu\fonts\IonIcons_compressed.h" />
+    <ClInclude Include="source\chadware2\menu\fonts\LoadFonts.hpp" />
+    <ClInclude Include="source\chadware2\menu\fonts\MaterialSymbolsRounded_compressed.h" />
+    <ClInclude Include="source\chadware2\menu\fonts\Outfit_Bold_compressed.h" />
+    <ClInclude Include="source\chadware2\menu\fonts\Outfit_Regular_compressed.h" />
+    <ClInclude Include="source\chadware2\menu\menu.h" />
+    <ClInclude Include="source\chadware2\menu\settings\settings.h" />
+    <ClInclude Include="source\chadware2\utils\offsets\offsets.h" />
+    <ClInclude Include="source\chadware2\utils\offsets\offsets_resource.h" />
+    <ClInclude Include="source\chadware2\menu\skinchanger\images\skin_images.h" />
+    <ClInclude Include="source\chadware2\renderer\renderer.h" />
+    <ClInclude Include="source\chadware2\utils\fnv1a\fnv1a.h" />
+    <ClInclude Include="source\chadware2\utils\math\utlvector\utlvector.h" />
+    <ClInclude Include="source\chadware2\utils\math\vector\vector.h" />
+    <ClInclude Include="source\chadware2\utils\memory\Interface\Interface.h" />
+    <ClInclude Include="source\chadware2\utils\memory\memorycommon.h" />
+    <ClInclude Include="source\chadware2\utils\memory\patternscan\patternscan.h" />
+    <ClInclude Include="source\chadware2\utils\memory\vfunc\vfunc.h" />
+    <ClInclude Include="source\chadware2\utils\schema\schema.h" />
+    <ClInclude Include="source\cs2\datatypes\cutlbuffer\cutlbuffer.h" />
+    <ClInclude Include="source\cs2\datatypes\schema\ISchemaClass\ISchemaClass.h" />
+    <ClInclude Include="source\cs2\datatypes\utlstronghandle\utlstronghandle.h" />
+    <ClInclude Include="source\cs2\entity\C_BaseEntity\C_BaseEntity.h" />
+    <ClInclude Include="source\cs2\entity\C_CSPlayerPawn\C_CSPlayerPawn.h" />
+    <ClInclude Include="source\cs2\entity\C_CSWeaponBase\C_CSWeaponBase.h" />
+    <ClInclude Include="source\cs2\entity\C_EconEntity\C_EconEntity.h" />
+    <ClInclude Include="source\cs2\entity\C_EntityInstance\C_EntityInstance.h" />
+    <ClInclude Include="source\cs2\entity\handle.h" />
+    <ClInclude Include="source\includes.h" />
+    <ClInclude Include="source\chadware2\utils\memory\rtti\rtti.h" />
+    <ClInclude Include="source\cs2\entity\CCompositeMaterialOwner\CCompositeMaterialOwner.h" />
+    <ClInclude Include="source\cs2\entity\C_CS2HudModelWeapon\C_CS2HudModelWeapon.h" />
+    <ClInclude Include="source\cs2\hud\HudWeaponSelection.h" />
+    <ClInclude Include="source\patterns.h" />
+    <ClInclude Include="external\imgui\imconfig.h" />
+    <ClInclude Include="external\imgui\imgui.h" />
+    <ClInclude Include="external\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="external\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="external\imgui\imgui_internal.h" />
+    <ClInclude Include="external\imgui\imgui_stdlib.h" />
+    <ClInclude Include="external\imgui\imstb_rectpack.h" />
+    <ClInclude Include="external\imgui\imstb_textedit.h" />
+    <ClInclude Include="external\imgui\imstb_truetype.h" />
+    <ClInclude Include="external\json\json.hpp" />
+    <ClInclude Include="external\kiero\minhook\include\MinHook.h" />
+    <ClInclude Include="external\kiero\minhook\src\buffer.h" />
+    <ClInclude Include="external\kiero\minhook\src\trampoline.h" />
+    <ClInclude Include="external\kiero\minhook\src\hde\hde32.h" />
+    <ClInclude Include="external\kiero\minhook\src\hde\hde64.h" />
+    <ClInclude Include="external\kiero\minhook\src\hde\pstdint.h" />
+    <ClInclude Include="external\kiero\minhook\src\hde\table32.h" />
+    <ClInclude Include="external\kiero\minhook\src\hde\table64.h" />
+  </ItemGroup>
+  <!-- Game-update kit: offsets.rc embeds the files in Chadware\offsets\ (see offsets\README.txt). -->
+  <ItemGroup>
+    <ResourceCompile Include="source\chadware2\utils\offsets\offsets.rc" />
+    <!-- The upgrader's price list: prices.rc embeds data\prices.txt (made by tools\make_prices.py). -->
+    <ResourceCompile Include="source\chadware2\features\unboxer\prices.rc" />
+  </ItemGroup>
+  <ItemDefinitionGroup>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)offsets;$(ProjectDir)data;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <!-- Always re-embed: the offsets files and data\prices.txt change without the .rc files changing. -->
+  <Target Name="RefreshEmbeddedOffsets" BeforeTargets="ResourceCompile">
+    <Delete Files="$(IntDir)offsets.res;$(IntDir)prices.res" />
+  </Target>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

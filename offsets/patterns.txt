@@ -1,0 +1,105 @@
+# Lootline signature overrides (compiled into the DLL by BUILD.bat).
+#
+# When CS2 updates and Settings -> Game update -> Check signatures shows a name in red, find a new signature for it
+# (UnknownCheats thread, a pattern list, ...) and write it here:
+#
+#     UseTool = 48 85 D2 0F 84 ? ? ? ? 53 41 57 48 83 EC 28 49 8B D8 4C 8B F9 48 85 DB 0F 84
+#
+# A line copied from a C++ patterns header works too:
+#     inline constexpr const char* UseTool = "48 85 D2 0F 84 ? ...";
+#
+# Use the names below exactly. Remove the # in front of a line to use it. ? = any byte.
+# Lines starting with # are ignored. An empty file = use the built-in signatures.
+
+# FrameStageNotify = 48 89 5C 24 ? 48 89 6C 24 ? 57 48 83 EC 40 48 8B F9 33 ED
+#     (client.dll, used for: everything)
+# UseTool = 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B F1 48 8B FA 48 8B D1
+#     (client.dll, used for: case opening)
+# InventoryManager = 48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8B 0D ? ? ? ? 48 85 C9 74
+#     (client.dll, used for: case opening)
+# CreateEconItem = 48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85
+#     (client.dll, used for: case opening)
+# CreateBaseTypeCache = 40 53 48 83 EC ? 4C 8B 49 ? 44 8B D2 45 33 C9
+#     (client.dll, used for: case opening)
+# CrateUnlockNotify = 4C 8B 35 ? ? ? ? 44 8B 60 38 4D 85 F6
+#     (client.dll, used for: case opening)
+# UiEngineRunFrame = 48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 54 48 83 EC ? 48 8B F1
+#     (panorama.dll, used for: case opening)
+# UiEnginePointer = 48 8B 0D ? ? ? ? 48 85 C9 74 ? 48 8B 01 FF 90 ? ? ? ? 48 8B D0
+#     (client.dll, used for: case opening)
+# MainMenuPanelPointer = 48 83 EC 28 48 8B 05 ? ? ? ? 48 8D 15 ? ? ? ? 48 8B 48 08
+#     (client.dll, used for: case opening)
+# RunPanoramaScript = 4C 89 4C 24 ? 4C 89 44 24 ? 48 89 54 24 ? 55 53 56 57 41 54 41 56
+#     (panorama.dll, used for: case opening)
+# ChatPrint = 4C 89 4C 24 20 53 56 B8 ? ? ? ? E8 ? ? ? ? 48 2B E0
+#     (client.dll, used for: drop message in chat)
+# StickerPlacement = 40 84 F6 75 ? 8B 05 ? ? ? ? 48 8B 4C 24 ? 83 49 10 04
+#     (client.dll, used for: stickers on Lootline guns)
+# ItemViewById = 40 53 48 83 EC 20 48 8B D9 48 8B 0D ? ? ? ? 48 85 C9
+#     (client.dll, used for: stickers on Lootline guns)
+# KeychainPlacement = F3 0F 10 05 ? ? ? ? 48 8B 0D ? ? ? ? 48 81 C1 A0 00 00 00
+#     (client.dll, used for: charms on Lootline guns)
+# PatchSlot = 48 8D 54 24 ? 8B 05 ? ? ? ? 83 49 10 04
+#     (client.dll, used for: patches on Lootline agents)
+# CreatePreviewItem = 48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 B8 FF 7F FF 7F FF 7F FF 7F
+#     (client.dll, used for: 3D preview)
+# PreviewBlockCtor = 48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B C2 33 F6 48 83 C8 02
+#     (client.dll, used for: 3D preview)
+# PreviewParseFromArray = 48 89 5C 24 10 48 89 74 24 18 55 57 41 56 48 8D 6C 24 B9
+#     (client.dll, used for: 3D preview)
+# PreviewBlockDtor = 48 89 5C 24 10 57 48 83 EC 20 48 8D 05 ? ? ? ? 48 8B D9 48 89 01
+#     (client.dll, used for: 3D preview)
+# PreviewStickerInModelPanel = 48 85 D2 0F 84 ? ? ? ? 48 89 6C 24 18 57 48 83 EC 40
+#     (client.dll, used for: 3D preview)
+# PreviewPlayerConstructor = 48 89 5C 24 10 57 48 83 EC 20 48 8B F9 E8 ? ? ? ? C7 87
+#     (client.dll, used for: 3D preview)
+# HudPanelPointer = 48 89 35 ? ? ? ? E8 ? ? ? ? 48 85
+#     (client.dll, used for: 3D preview)
+# PanoramaCreateRenderTargets = 4C 8B DC 55 57 41 55 49 8D AB 68 FD FF FF
+#     (panorama.dll, used for: 3D preview)
+# PanoramaAcquireLayerRt = 40 53 56 48 83 EC 78 48 FF 81 A0 00 00 00
+#     (panorama.dll, used for: 3D preview)
+# GetLocalPawn = 48 83 EC 28 83 F9 FF 75 ? 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 10 03 00 00
+#     (client.dll, used for: everything)
+# GetBaseEntity = 4C 8D 49 10 81 FA FE 7F 00 00 ? ? 8B CA C1 F9 09 83 F9 3F
+#     (client.dll, used for: skins in matches)
+# RegenerateSkins = 48 83 EC ? E8 ? ? ? ? 48 85 C0 0F 84 ? ? ? ? 48 8B 10
+#     (client.dll, used for: skins in matches)
+# BuildModernSkin = 48 85 C9 0F 84 ? ? ? ? 48 8B C4 48 89 50 10
+#     (client.dll, used for: skins in matches)
+# ReleaseCompositeMaterials = 48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 56 41 57
+#     (client.dll, used for: skins in matches)
+# KnifeUpdateSubclass = 4C 8B DC 53 48 81 EC ? ? ? ? 48 8B 41
+#     (client.dll, used for: knives in matches)
+# AnimGraphRebuild = 40 55 56 48 83 EC 28 4C 89 74 24 58 48 8B F1 80 FA FF
+#     (client.dll, used for: knives in matches)
+# GloveCreatePaintKit = 48 89 5C 24 ? 56 48 83 EC ? 48 8B 01 FF 50
+#     (client.dll, used for: gloves in matches)
+# GloveSetBodyGroup = E8 ? ? ? ? EB 0C 48 8B CF
+#     (client.dll, used for: gloves in matches)
+# SetMeshGroupMask = 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8D 99
+#     (client.dll, used for: knives / gloves in matches)
+# AgentSetModel = 40 53 48 83 EC ? 48 8B D9 4C 8B C2 48 8B 0D ? ? ? ? 48 8D 54 24
+#     (client.dll, used for: knives / gloves in matches)
+# AgentPrecache = 40 53 55 57 48 81 EC ? ? ? ? 48 8B 01 49 8B E8
+#     (resourcesystem.dll, used for: knives / gloves in matches)
+# AddKeyChainEntity = 44 88 44 24 ? 48 89 54 24 ? 48 89 4C 24 ? 55 53 56 57 41 54 41 55
+#     (client.dll, used for: charms)
+# FindHudKeychainAddon = 48 89 5C 24 18 57 41 56 41 57 48 83 EC 20 49 8B F9
+#     (client.dll, used for: charms)
+# RemoveHudKeychainAddon = 48 83 EC 28 48 85 C9 0F 84 ? ? ? ? 48 8B 51 10
+#     (client.dll, used for: charms)
+# RemoveKeychainModule = 48 83 EC 28 48 85 C9 74 ? 48 8B 51 10 8B 42 30
+#     (client.dll, used for: charms)
+# FindHudElement = 40 53 48 83 EC ? 48 8B 05 ? ? ? ? 48 8B D9 48 85 C0
+#     (client.dll, used for: HUD weapon icons)
+# ClearHudWeapon = E8 ? ? ? ? 8B F8 C6 84 24
+#     (client.dll, used for: HUD weapon icons)
+# InputPointer = 48 8B 0D ? ? ? ? 8B D3 E8 ? ? ? ? ? ? ? ? F2 0F 11 45
+#     (client.dll, used for: menu mouse)
+# GetFov = 40 53 48 83 EC ? 48 8B D9 E8 ? ? ? ? 48 85 C0 74 ? 48 8B C8
+#     (client.dll, used for: FOV changer)
+# ShouldDrawCrosshair = 48 89 5C 24 08 57 48 83 EC 20 48 8B D9 E8 ? ? ? ? 48 85 C0
+#     (client.dll, used for: crosshair on snipers)
+# ButtonRegistration = 45 33 C0 48 8D 15 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8B 05
+#     (client.dll, used for: bunnyhop)

@@ -1,0 +1,8 @@
+#include "resource.h"
+
+// App icon: the first icon resource is what Explorer / the taskbar show.
+IDI_UNBOXER ICON "unboxer.ico"
+
+// The case opener DLL, embedded so the injector is a single file. Found through the resource include path,
+// which the project points at the DLL's output folder (x64\<Configuration>\).
+IDR_PAYLOAD RCDATA "Lootline.dll"

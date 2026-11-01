@@ -1,0 +1,8 @@
+#include "offsets_resource.h"
+
+// The files in Chadware\offsets\ (found through the ResourceCompile include path in the .vcxproj).
+// After a CS2 update: paste the new dump files there and rebuild (BUILD.bat).
+IDR_OFFSETS_JSON  RCDATA "offsets.json"
+IDR_BUTTONS_JSON  RCDATA "buttons.json"
+IDR_INFO_JSON     RCDATA "info.json"
+IDR_PATTERNS_TXT  RCDATA "patterns.txt"

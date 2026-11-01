@@ -1,0 +1,204 @@
+[B]Changelog - Lootline v1.5.3[/B]
+
+[B]New[/B]
+[LIST]
+[*][B]Custom skin colours[/B] - Inventory tab -> click a gun, knife or gloves -> "Custom colour" (right under its name): turn on "Recolour this skin", pick Solid, Tint, Dual or Gradient and your colours. They show in a match, in CS2's own inventory and inspect, and in the 3D preview. Only you see them.
+[*][B]Doppler phase prices[/B] - every Doppler and Gamma Doppler phase has its own price now (Ruby, Sapphire, Black Pearl, Emerald, Phase 1-4), from CSFloat's lowest listings. Before, every phase got the price of the cheapest one: a Butterfly Knife Doppler Sapphire showed about $1,900 instead of about $5,700.
+[*][B]Shuffle every round[/B] - Settings -> In a match. CS2's loadout shuffle picks once per match, and so does Lootline now; turn this on for a new pick every round.
+[*][B]Your real StatTrak count in CS2[/B] - a StatTrak item that counts your real kills shows that count in CS2's inventory, inspect and loadout too (it showed 0), and in the Inventory tab and the 3D preview.
+[/LIST]
+
+[B]Changed[/B]
+[LIST]
+[*]The item panel in the Inventory tab scrolls, with Custom colour right under the item's name and the rest below.
+[*]Many items added at once arrive all NEW or none, so CS2's "new items" count matches what you added.
+[/LIST]
+
+[B]Fixed[/B]
+[LIST]
+[*]Updated for the 2026-10-28 CS2 update (1.41.9.3): new offsets, and the knife inspect fix and your Lootline items in the start / end lineups work again (that part of the game had moved).
+[*]A skin could stay plain or go missing for a whole session (the T knife, the Glock...), even after "Reapply skins": CS2 kept waiting for an identical skin that never finished. Lootline makes it on its own after a second now. Other players' real skins that sometimes showed plain (spectating, at spawn) are fixed the same way.
+[*]A gun you dropped (or had when you died) lost your skin - the Glock went back to the default one.
+[*]On a server running in your own game (a map you host, offline with bots) your guns had no Lootline skin (knives were fine).
+[*]Souvenir guns weren't named "Souvenir ..." in a match.
+[*]Rare knife draw animations (the Nomad's, for example) were cut short after a knife change.
+[*]One wrong value in items.json made Lootline start with an empty inventory, and the next save wiped the file. Now a bad item is skipped, and an unreadable file is first kept as items.unreadable-<time>.json. stattrak.json is saved safely too (a crash while saving can't cut it anymore).
+[*]Shortened Russian labels showed a broken character.
+[/LIST]
+
+[B]Known issues[/B]
+[LIST]
+[*]Left-handed (cl_righthand 0): stickers put on with Lootline can show mirrored on your first-person gun.
+[*]Pets (the chicken) may not work yet.
+[/LIST]
+
+[B]Changelog - Lootline v1.5.2[/B]
+
+[B]New[/B]
+[LIST]
+[*][B]Real Souvenirs[/B] - a souvenir package drops Souvenir skins with the event's gold stickers on them, like the real ones: the tournament's logo, the two teams and a player.
+[*][B]Lootline prices in CS2[/B] - a Lootline item's price under its name when you inspect it in CS2, and what all your Lootline items are worth at the top of CS2's inventory. Each has its own switch in Settings -> Prices.
+[*][B]Your skins in replays[/B] - your Lootline skins, knife and gloves show when you watch a replay (GOTV demo) of your match. The agent stays the recorded one (changing a model in a replay can crash CS2). A replay never adds StatTrak kills.
+[*][B]Reapply times[/B] - Settings -> In a match -> "Reapply skins when you spawn": your own list of times after spawning (0 - 60 s, up to 8). Add, change or delete them.
+[*][B]Card sizes[/B] - Cases, Add items, Inventory and Upgrader each have their own "Pictures" and "Text size" sliders on top (60 - 200 %), with a reset button.
+[*][B]Sort by Popular[/B] - Add items: A-Z / Rarity / Popular. Popular = the most wanted first, the famous ones that cost the most on the market (Titan Holo, Crown Foil, Dragon Lore...).
+[*][B]Storage units in the Inventory tab[/B] - a "Storage units" filter (the units and what's in them), an "IN UNIT" tag on stored items, a unit lists what's inside, and a stored item shows which unit it's in.
+[*][B]Named Storage Units from Add items[/B] - give the unit its name before you add it and it's ready to use right away.
+[*][B]Name tags in the lineups[/B] - your named gun carries its name tag in the start / end of match lineups too.
+[*][B]After a CS2 update[/B] - if part of the game isn't found when Lootline loads, a CS2 popup tells you which features may not work (Settings -> Game update -> Check signatures has the details).
+[*][B]Buy keys with Lootline[/B] [COLOR="Orange"][B](work in progress, off by default)[/B][/COLOR] - Settings -> Prices. A case without a key: CS2's own Buy in the case window gives you Lootline keys - free, nothing goes to Steam - and Unlock comes up like after a real purchase. "Spent on keys" counts what they would have cost ($2.49 a key) in your currency (Settings and the Cases tab). [COLOR="Orange"]If Steam's own payment window ever opens, close it and don't confirm anything: Lootline didn't catch that purchase.[/COLOR]
+[/LIST]
+
+[B]Changed[/B]
+[LIST]
+[*]The Armory is a category tab in Cases now, right before "Other" (the "Cases | Armory" switch is gone).
+[*]Bigger gun pictures in Add items.
+[*]Sticker, charm and patch placement: when a CS2 update breaks its signature, Lootline finds it by itself.
+[*]After every spawn lootline_log.txt gets a "spawn check" line - what each of your weapons' skins is doing. Send it with a bug report about a skin that disappeared.
+[/LIST]
+
+[B]Fixed[/B]
+[LIST]
+[*]Updated for the 2026-10-22 CS2 update (1.41.9.2): new offsets, and your Lootline gloves in the lineups (that part of the game had moved).
+[*]FPS drops when opening cases and changing your inventory: the Armory's check went through CS2's whole menu every second (in a match too) - now only while the Store is open. The item list is saved in the background, and the loadout shuffle only re-equips when its pick changes something.
+[*]Watching a replay could crash CS2 after "Reapply skins" or a knife change.
+[*]Souvenir packages gave StatTrak and non-Souvenir skins.
+[*]The mouse cursor stayed on screen after spawning (Home twice to get rid of it).
+[*]The side pick screen (when you join a server) showed every player on your side as your Lootline agent - now only you, one model; everyone else keeps theirs.
+[*]A skin could disappear (the default knife / Glock came back) when the game put the real item back on the weapon - Lootline puts yours back on now.
+[/LIST]
+
+[B]Known issues[/B]
+[LIST]
+[*]Left-handed (cl_righthand 0): stickers put on with Lootline can show mirrored on your first-person gun.
+[*]Pets (the chicken) may not work yet.
+[/LIST]
+
+[B]Changelog - Lootline v1.5.1[/B]
+
+[B]Fixed[/B]
+[LIST]
+[*]Updated for the 2026-10-14 CS2 update. After it, storage units did nothing (CS2's storage window never heard that an item went in or came out), Uplink Terminal offers didn't show up on the laptop, and opening a case fell back to a slower way of showing the result. Lootline now reads that part of the game by itself, so an update that only moves the code around won't break it again.
+[/LIST]
+
+[B]Changed[/B]
+[LIST]
+[*][B]The Armory has its own tab[/B] - Cases -> Armory (the switch on top of the Cases tab): Armory on / off, your stars, +5 / +40, and this season's rewards with what each one costs (gold when you have enough stars). It's no longer in Settings.
+[*][B]Name tags in the Inventory tab[/B] - a named item shows its name on the card ("blazer", with the gun under it), like CS2's inventory, and the search finds items by their name tag.
+[/LIST]
+
+[B]Known issues[/B]
+[LIST]
+[*]Left-handed (cl_righthand 0): stickers put on with Lootline can show mirrored on your first-person gun.
+[*]Pets (the chicken) may not work yet.
+[/LIST]
+
+[B]Changelog - Lootline v1.5[/B]
+
+[B]New[/B]
+[LIST]
+[*][B]The Armory with Lootline stars[/B] - CS2's own Armory (Store -> Armory) shows your Lootline stars. Redeem a collection, a case, stickers or charms there and you get it with the real odds, in CS2's own reward window. Settings -> Armory: on / off, your stars, +5 / +40. Only on this PC - nothing is sent to Valve.
+[*][B]Storage Units[/B] - Add items -> Tools. Name it in CS2 (right-click -> Name), then put Lootline items in and take them out like a real one, with CS2's own storage unit windows, its item count and date.
+[*][B]StatTrak Swap Tool[/B] - swaps the StatTrak counts of two Lootline guns in CS2's own swap window.
+[*][B]Charm Detachments[/B] - a Charm Detachment Pack gives you 3. Taking a charm off a Lootline gun uses one, like in CS2.
+[*][B]Loadout shuffle[/B] - CS2's shuffle works with Lootline items: mark them in a shuffled slot and every spawn picks one of them (your real ones too).
+[*][B]Loadouts[/B] - Inventory -> Loadouts: save what you have equipped under a name, put a saved one on in one click, or delete it.
+[*][B]Custom odds[/B] - Cases -> Random -> Custom odds: your own chance for each grade of each case (drag the slider or type the %). Off = the real odds.
+[*][B]Random float and pattern[/B] - Add items and Cases -> Choose: "Random float" (a float of the picked wear that the finish really has - a Doppler only goes 0 - 0.08) and "Random seed". Every copy gets its own.
+[*][B]Menu colour[/B] - Settings -> Menu: pick the menu's colour (the selected tab, buttons, switches, sliders) or turn on RGB so the colours go round. "Back to gold" puts it back.
+[*][B]Tools in Add items[/B] - Storage Unit, Name Tag, StatTrak Swap Tool, Charm Detachment Pack.
+[/LIST]
+
+[B]Changed[/B]
+[LIST]
+[*]Trade-up floats work like CS2's: each input's float counts by where it sits in its finish's float range, and the result lands in the same place in its own finish's range.
+[*]A skin from a case always gets a float inside its finish's real range.
+[*]The 3D preview has the rarity colour behind the item.
+[*]Graffiti: the can shakes first, then the spray sound, and the graffiti paints in.
+[/LIST]
+
+[B]Fixed[/B]
+[LIST]
+[*]Souvenir Covert (red) skins couldn't go into a trade-up contract.
+[*]Trade-ups of blue and lower skins said "nothing of the next quality" when the skin's collection has no case (the Dust Collection's Glock-18 Brass, the Baggage and Achroma collections...).
+[*]The game got slower after opening 100-150+ cases: the item list was saved after every single opening. It's saved at most every 1.5 seconds now.
+[*]A deleted item flashed by when you scrolled your inventory: item ids are never used twice now.
+[/LIST]
+
+[B]Known issues[/B]
+[LIST]
+[*]Left-handed (cl_righthand 0): stickers put on with Lootline can show mirrored on your first-person gun.
+[*]Pets (the chicken) may not work yet.
+[/LIST]
+
+[B]Changelog - Lootline v1.4[/B]
+
+[B]New[/B]
+[LIST]
+[*][B]Lineups[/B] - your Lootline agent, gloves, knife and gun skins (stickers and charm too) in the start-of-match and end-of-match lineups, and on the side pick screen when you join a server. Only on your screen.
+[*][B]New items like real ones[/B] - an item you add arrives as NEW: the Inventory tab shows the count, and opening it shows CS2's own "new item" window with the item in its rarity colour. Clicking through clears the count - it never gets stuck (Lootline answers it itself, nothing is sent to Valve).
+[*][B]Major highlight charms[/B] - every one is in: Austin 2025 (492 clips), Budapest 2025 (373) and Cologne 2026. Inspect one in CS2 and its highlight video plays. Add items shows one card per Major and the clips in a list on the right, with a search for the clip, the player ("flamez"), the team or the map, and each clip's match ("VIT vs MOUZ - Mirage"). Every clip has its own market price.
+[*][B]Scoreboard pin[/B] - equip a Lootline pin, coin or medal and it's next to your name on the scoreboard (Settings -> In a match, on / off). Only you see it.
+[*][B]Name tags on the gun[/B] - a named Lootline weapon carries CS2's name tag on the gun, in first person too.
+[*][B]Kill feed[/B] - your knife kills show your Lootline knife.
+[*][B]Graffiti charges[/B] - an unsealed Lootline graffiti has 50 charges like CS2's ("Charges Remaining" in the inventory, "Charges" in Lootline's): every spray uses one, the last one uses it up. A spray makes CS2's spray sound now.
+[*][B]New look[/B] - the rarity backdrop behind items is now like CS2's loadout card: the rarity colour strong on the left, fading into dark, with a fine mesh.
+[/LIST]
+
+[B]Fixed[/B]
+[LIST]
+[*]A weapon you picked up from someone else showed your Lootline skin (and hid its own).
+[*]Graffiti only you see didn't show on official servers (it faded out at once when the map had been running for more than 6 minutes).
+[*]A real item's own stickers and charm showed through your Lootline skin.
+[*]The hotkeys (reapply skins, bunnyhop, FOV) went off while you typed in the chat or the console - an "n" in a chat message reapplied your skins. They're ignored while you type now, and bunnyhop doesn't jump on the space bar you type.
+[*]A Lootline gun equipped in a slot where your Steam loadout has a different gun (MP7 / MP5-SD, M4A4 / M4A1-S...) - the buy menu sold the wrong one.
+[*]Updated for CS2 build 14190: after that update every gun showed "Finishes: 0" and knives / gloves were missing in Add items (the game moved its list of finishes - Lootline now finds it by itself).
+[/LIST]
+
+[B]Known issues[/B]
+[LIST]
+[*]Left-handed (cl_righthand 0): stickers put on with Lootline can show mirrored on your first-person gun.
+[*]Pets (the chicken) may not work yet.
+[/LIST]
+
+[B]Changelog - Lootline v1.3[/B]
+
+[B]New[/B]
+[LIST]
+[*][B]Graffiti only you see[/B] - equip a Lootline graffiti and spray it with CS2's own spray wheel: it goes on the wall as a real graffiti decal (behind your hands and gun, lit like the wall, the game's own size), on your screen only. Nothing is sent to the server. One every 45 seconds like in CS2 - the wheel shows the cooldown.
+[*][B]Sticker Slab[/B] - seal a sticker in a slab, crack it open again, hang the slab on a gun.
+[*][B]Agent voice lines[/B] - your Lootline agent talks with its own voice, radio commands too.
+[*][B]Currency[/B] - Settings -> Prices: show every price in dollars, euros, rubles, pounds, hryvnia, zloty, tenge, lira, real, yuan or shekel. The terminal laptop's "Accept Offer" shows it too. The rates are built in (Lootline never goes online).
+[*][B]Inventory tab[/B] - click an item: a side panel with its 3D preview, stickers and charm, wear, pattern and its price (exactly that item: wear, StatTrak, Souvenir). Cards show their stickers and charm as small icons.
+[*][B]One search for everything[/B] in Add items - skins, knives, gloves, agents, stickers, charms... ("ak redline" finds AK-47 | Redline), with a chip per category.
+[*][B]Upgrader, reworked[/B] - your item, the wheel and the target big on top, your items and the targets below. Put up to 6 items in at once (their prices add up) and type the float the target comes with.
+[*][B]Float typed everywhere[/B] - Cases -> Choose and Add items: type any float, or click FN / MW / FT / WW / BS.
+[*][B]Medals and coins by grade[/B] - one card per medal / coin, its grades (bronze, silver, gold, diamond...) as pictures on the right.
+[*][B]Graffiti colours[/B] - the white graffiti come in all 19 colours.
+[*][B]Hotkeys[/B] for bunnyhop, FOV and "reapply skins", set right in their rows.
+[*][B]Reapply skins when you spawn[/B] - everything (gloves too) is put on again a moment after you spawn.
+[*][B]Locked loadout[/B] - in a match where CS2 locks the loadout, its loadout screen shows the Lootline items you forced in.
+[*][B]X-Ray / loot box countries[/B] - Lootline cases open there like anywhere else; the X-Ray P250 Package is in the case list.
+[*][B]Update prices[/B] - Settings -> Prices: one click opens CSFloat's price list in your browser, you save it, Lootline takes it. Built-in prices are from 2026-10-07.
+[/LIST]
+
+[B]Changed[/B]
+[LIST]
+[*]Lootline starts in the background: no freeze when it loads. Pictures in the menu load a few at a time, so opening a tab doesn't freeze the game either.
+[*]A cleaner menu: bigger pictures that grow when there are few items, a rarity glow under the item, a centred "Remove Everything?" question.
+[*]Prices: agents, charms (highlight charms too), Sticker Slabs, cases and keys now have their real market price. Stickers Valve never released (old Majors' gold / foil, the Katowice 2014 foils) are priced from the same sticker's real finishes instead of a cheap guess.
+[*]The default T / CT agents are gone from the agent list; pictures CS2 doesn't ship are built in (the Redacted map coin, the Budapest 2025 charm).
+[/LIST]
+
+[B]Fixed[/B]
+[LIST]
+[*]A charm jumped off the gun and back on when you bought, dropped or threw something (a grenade too).
+[*]The knife inspect animation after a knife change.
+[*]Placeholder items named "item 6046" and the like in the pins & coins list.
+[/LIST]
+
+[B]Known issues[/B]
+[LIST]
+[*]A weapon you pick up from someone else shows your Lootline skin for that weapon.
+[*]Pets (the chicken) may not work yet.
+[/LIST]

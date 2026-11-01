@@ -1,0 +1,13 @@
+#include "prices_resource.h"
+
+// The upgrader's price list, data\prices.txt (found through the ResourceCompile include path in the .vcxproj).
+// To refresh it: tools\make_prices.py, then rebuild (BUILD.bat).
+IDR_PRICES_TXT  RCDATA "prices.txt"
+
+// Every weapon case's knives / gloves (each finish and Doppler phase), data\case_rares.txt - not in the game files.
+// To refresh it: tools\make_case_rares.py, then rebuild.
+IDR_CASE_RARES_TXT  RCDATA "case_rares.txt"
+
+// Container pictures CS2 doesn't ship itself (the Budapest 2025 Overpass Souvenir Package), data\extra_images.bin.
+// To refresh it: tools\make_extra_images.py, then rebuild.
+IDR_EXTRA_IMAGES_BIN  RCDATA "extra_images.bin"
